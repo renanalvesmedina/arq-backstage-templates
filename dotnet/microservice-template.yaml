@@ -1,0 +1,62 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: microservice-solution
+  title: Microservice Solution
+  description: Common Microservice Scaffolder
+  tags:
+    - coe-arq
+    - microservice
+    - dotnet
+    - webapi
+spec:
+  owner: coe
+  type: archetype
+  parameters:
+    - title: Provide some simple information about default entrypoint
+      required:
+        - app_name
+        - namespace
+        - template
+        - system
+      properties:
+        app_name:
+          title: Identification
+          type: string
+          description: Application unique name.
+          pattern: '^\S*[a-z\-]$'
+        namespace:
+          title: Solution name
+          type: string
+          description: Solution name.
+          pattern: '^\S*[a-zA-Z]$'
+        template:
+          title: Template
+          type: string
+          description: Archtype.
+          enum:
+            - webapi
+        system:
+          title: System
+          type: string
+          description: System that its component is part of.
+          ui:field: EntityPicker
+          ui:options:
+            allowedKinds:
+              - System
+            defaultKind: System
+    - title: Select dependencies
+      properties:
+        enable_postgress:
+          title: Enable Postgress integration
+          type: boolean
+          description: Whether or not to add Postgress dependencies
+        enable_mongodb:
+          title: Enable MongoDb integration
+          type: boolean
+          description: Whether or not to add MongoDb dependencies
+        enable_redis:
+          title: Enable Redis integration
+          type: boolean
+          description: Whether or not to add MongoDb dependencies
+  steps:
