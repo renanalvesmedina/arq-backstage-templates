@@ -1,9 +1,7 @@
 apiVersion: backstage.io/v1alpha1
 kind: Location
 metadata:
-  name: arq-backstage-templates
-  annotations:
-    github.com/project-slug: renanalvesmedina/arq-backstage-templates
+  name: coe-templates
 spec:
   targets:
     - /dotnet/microservice-template.yaml
