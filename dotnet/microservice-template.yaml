@@ -10,8 +10,8 @@ metadata:
     - dotnet
     - webapi
 spec:
-  owner: coe
-  type: archetype
+  owner: user:guest
+  type: service
   parameters:
     - title: Provide some simple information about default entrypoint
       required:
