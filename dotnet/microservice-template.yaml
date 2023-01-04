@@ -5,6 +5,7 @@ metadata:
   title: Microservice Solution
   description: Common Microservice Scaffolder
   tags:
+    - recommended
     - coe-arq
     - microservice
     - dotnet
