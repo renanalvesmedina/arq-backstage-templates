@@ -60,3 +60,10 @@ spec:
           type: boolean
           description: Whether or not to add MongoDb dependencies
   steps:
+  - id: fetch-base
+      name: Fetch Base
+      action: fetch:template
+      input:
+        url: ./content
+        values:
+          name: ${{ parameters.name }}
