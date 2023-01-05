@@ -66,6 +66,7 @@ spec:
         allowedHosts: ['github.com']
         description: ${{ parameters.app_name }}
         repoUrl: ${{ parameters.repoUrl }}
+        protectDefaultBranch: false
 
     - id: register
       name: Register
