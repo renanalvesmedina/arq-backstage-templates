@@ -26,10 +26,10 @@ spec:
           type: string
           description: Application unique name.
           pattern: '^\S*[a-z\-]$'
-        namespace:
-          title: Solution name
+        repoUrl:
+          title: Github Repo
           type: string
-          description: Solution name.
+          description: Github Repo of new project based on template.
           pattern: '^\S*[a-zA-Z]$'
         template:
           title: Template
@@ -37,15 +37,6 @@ spec:
           description: Archtype.
           enum:
             - webapi
-        system:
-          title: System
-          type: string
-          description: System that its component is part of.
-          ui:field: EntityPicker
-          ui:options:
-            allowedKinds:
-              - System
-            defaultKind: System
     - title: Select dependencies
       properties:
         enable_postgress:
@@ -67,14 +58,14 @@ spec:
       input:
         url: ./content
         values:
-          name: ${{ parameters.name }}
+          name: ${{ parameters.app_name }}
 
     - id: publish
       name: Publish
       action: publish:github
       input:
         allowedHosts: ['github.com']
-        description: ${{ parameters.name }}
+        description: ${{ parameters.app_name }}
         repoUrl: ${{ parameters.repoUrl }}
 
     - id: register
