@@ -17,9 +17,8 @@ spec:
     - title: Provide some simple information about default entrypoint
       required:
         - app_name
-        - namespace
+        - repoUrl
         - template
-        - system
       properties:
         app_name:
           title: Identification
