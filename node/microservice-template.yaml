@@ -18,7 +18,6 @@ spec:
       required:
         - app_name
         - repoUrl
-        - template
       properties:
         app_name:
           title: Identification
@@ -61,7 +60,7 @@ spec:
       input:
         url: ./skeleton
         values:
-          name: ${{ parameters.app_name }}
+          app_name: ${{ parameters.app_name }}
           owner: ${{ parameters.owner }}
 
     - id: publish
