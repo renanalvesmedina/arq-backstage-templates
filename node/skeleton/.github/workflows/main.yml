@@ -29,7 +29,7 @@ jobs:
         npm install
     - uses: actions/upload-artifact@v3.1.1
       with:
-        path: ${{ github.workspace }}/package.json
+        path: ${{ '${{ github.workspace }}' }}/package.json
         name: skeleton-tar
         if-no-files-found: error
         retention-days: 1
@@ -43,14 +43,14 @@ jobs:
    - uses: actions/download-artifact@v3.0.1
      with:
        name: skeleton-tar
-       path: ${{ github.workspace }}/package.json
+       path: ${{ '${{ github.workspace }}' }}/package.json
    - name: Kaniko builder
      uses: aevea/action-kaniko@v0.10.0
      with:
-       username: ${{ secrets.DOCKERHUB_USERNAME }}
-       password: ${{ secrets.DOCKERHUB_PASSWORD }}
+       username: ${{ '${{ secrets.DOCKERHUB_USERNAME }}' }}
+       password: ${{ '${{ secrets.DOCKERHUB_PASSWORD }}' }}
        image: walber7/node-web-app
-       tag: ${{ github.run_number }}
+       tag: ${{ '${{ github.run_number }}' }}
   #         cache: true
   #         cache_registry: walber7/cache
         
@@ -63,11 +63,11 @@ jobs:
      - name: Set short git commit SHA
        id: vars
        run: |
-         calculatedSha=$(git rev-parse --short ${{ github.sha }})
+         calculatedSha=$(git rev-parse --short ${{ '${{ github.sha }}' }})
          echo "::set-output name=short_sha::$calculatedSha"
          sed -i 's,$REGISTRY.*,walber7/node-web-app,' k8s/helm/values.yaml
-         sed -i 's,tag:.*",tag: \"${{ github.run_number }}\",' k8s/helm/values.yaml
-         echo "${{ secrets.KUBE_CONFIG }}" > kubeconfig.backstage
+         sed -i 's,tag:.*",tag: \"${{ '${{ github.run_number }}' }}\",' k8s/helm/values.yaml
+         echo "${{ '${{ secrets.KUBE_CONFIG }} }}" > kubeconfig.backstage
      - name: Helm tool installer
        uses: Azure/setup-helm@v3    
      - name: Deploy
