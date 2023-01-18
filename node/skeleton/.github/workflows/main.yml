@@ -27,12 +27,12 @@ jobs:
     - run: |
         npm init -y
         npm install
-    - uses: actions/upload-artifact@v3.1.1
-      with:
-        path: ${{ '${{ github.workspace }}' }}/package.json
-        name: skeleton-tar
-        if-no-files-found: error
-        retention-days: 1
+#     - uses: actions/upload-artifact@v3.1.1
+#       with:
+#         path: ${{ '${{ github.workspace }}' }}/package.json
+#         name: skeleton-tar
+#         if-no-files-found: error
+#         retention-days: 1
         
   kaniko:
    name: kaniko_push
@@ -40,10 +40,10 @@ jobs:
    needs: [build_job]
    steps:
    - uses: actions/checkout@v2.4.0
-   - uses: actions/download-artifact@v3.0.1
-     with:
-       name: skeleton-tar
-       path: ${{ '${{ github.workspace }}' }}/package.json
+#    - uses: actions/download-artifact@v3.0.1
+#      with:
+#        name: skeleton-tar
+#        path: ${{ '${{ github.workspace }}' }}/package.json
    - name: Kaniko builder
      uses: aevea/action-kaniko@v0.10.0
      with:
