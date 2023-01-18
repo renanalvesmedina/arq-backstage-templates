@@ -67,7 +67,7 @@ jobs:
          echo "::set-output name=short_sha::$calculatedSha"
          sed -i 's,$REGISTRY.*,walber7/node-web-app,' k8s/helm/values.yaml
          sed -i 's,tag:.*",tag: \"${{ '${{ github.run_number }}' }}\",' k8s/helm/values.yaml
-         echo "${{ '${{ secrets.KUBE_CONFIG }} }}" > kubeconfig.backstage
+         echo "${{ '${{ secrets.KUBE_CONFIG }}' }}" > kubeconfig.backstage
      - name: Helm tool installer
        uses: Azure/setup-helm@v3    
      - name: Deploy
