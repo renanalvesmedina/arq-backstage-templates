@@ -5,6 +5,7 @@ metadata:
   annotations:
     github.com/project-slug: ${{"coe-tech/" + values.app_name}}
     backstage.io/techdocs-ref: dir:.
+    backstage.io/kubernetes-id: coe-tech
 spec:
   type: service
   lifecycle: development
