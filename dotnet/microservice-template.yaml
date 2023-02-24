@@ -57,6 +57,7 @@ spec:
         url: ./content
         values:
           name: ${{ parameters.app_name }}
+          system: ${{ parameters.system }}
 
     - id: publish
       name: Publish
