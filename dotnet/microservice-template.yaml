@@ -17,6 +17,7 @@ spec:
     - title: Provide some simple information about default entrypoint
       required:
         - app_name
+        - repoUrl
         - template
       properties:
         app_name:
@@ -24,11 +25,11 @@ spec:
           type: string
           description: Application unique name.
           pattern: '^\S*[a-z\-]$'
-        # repoUrl:
-        #   title: Github Repo
-        #   type: string
-        #   description: Github Repo of new project based on template.
-        #   pattern: '^\S*[a-zA-Z]$'
+        repoUrl:
+          title: Github Repo
+          type: string
+          description: Github Repo of new project based on template.
+          pattern: '^\S*[a-zA-Z]$'
         template:
           title: Template
           type: string
@@ -57,7 +58,6 @@ spec:
         url: ./content
         values:
           name: ${{ parameters.app_name }}
-          system: ${{ parameters.system }}
 
     - id: publish
       name: Publish
@@ -65,7 +65,7 @@ spec:
       input:
         allowedHosts: ['github.com']
         description: ${{ parameters.app_name }}
-        repoUrl: ${{ parameters.app_name }}
+        repoUrl: ${{ parameters.repoUrl }}
         repoVisibility: 'public'
 
     - id: register
