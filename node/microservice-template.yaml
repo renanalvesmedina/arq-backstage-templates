@@ -17,20 +17,19 @@ spec:
     - title: Provide some simple information about default entrypoint
       required:
         - app_name
-        - repoUrl
       properties:
         app_name:
           title: Identification
           type: string
           description: Application unique name.
           pattern: '^\S*[a-z\-]$'
-        repoUrl:
-          title: Repository Location
-          type: string
-          ui:field: RepoUrlPicker
-          ui:options:
-            allowedHosts:
-              - github.com
+        # repoUrl:
+        #   title: Repository Location
+        #   type: string
+        #   ui:field: RepoUrlPicker
+        #   ui:options:
+        #     allowedHosts:
+        #       - github.com
         owner:
           title: Owner
           type: string
@@ -45,14 +44,6 @@ spec:
           title: Enable Postgress integration
           type: boolean
           description: Whether or not to add Postgress dependencies
-        enable_mongodb:
-          title: Enable MongoDb integration
-          type: boolean
-          description: Whether or not to add MongoDb dependencies
-        enable_redis:
-          title: Enable Redis integration
-          type: boolean
-          description: Whether or not to add MongoDb dependencies
   steps:
     - id: fetch-base
       name: Fetch Base
@@ -69,7 +60,7 @@ spec:
       input:
         allowedHosts: ['github.com']
         description: This is ${{ parameters.app_name }}
-        repoUrl: ${{ parameters.repoUrl }}
+        repoUrl: ${{ parameters.app_name }}
 
     - id: register
       name: Register
