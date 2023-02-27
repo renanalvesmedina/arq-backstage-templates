@@ -17,20 +17,20 @@ spec:
     - title: Provide some simple information about default entrypoint
       required:
         - app_name
-        - repoUrl
+        # - repoUrl
       properties:
         app_name:
           title: Identification
           type: string
           description: Application unique name.
           pattern: '^\S*[a-z\-]$'
-        repoUrl:
-          title: Repository Location
-          type: string
-          ui:field: RepoUrlPicker
-          ui:options:
-            allowedHosts:
-              - github.com
+        # repoUrl:
+        #   title: Repository Location
+        #   type: string
+        #   ui:field: RepoUrlPicker
+        #   ui:options:
+        #     allowedHosts:
+        #       - github.com
         owner:
           title: Owner
           type: string
