@@ -25,10 +25,14 @@ spec:
           description: Application Unique Name.
           pattern: '^\S*[a-z\-]$'
         system_name:
-          title: System or Application
+          title: System
           type: string
-          description: System or Application.
-          pattern: '^\S*[a-z\-]$'
+          description: System that its component is part of.
+          ui:field: EntityPicker
+          ui:options:
+            allowedKinds:
+              - System
+            defaultKind: System
         # repoUrl:
         #   title: Repository Location
         #   type: string
