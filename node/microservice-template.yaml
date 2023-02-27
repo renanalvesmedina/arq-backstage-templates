@@ -39,20 +39,20 @@ spec:
           ui:options:
             allowedKinds:
               - Group
-    - title: Select dependencies
-      properties:
-        enable_postgress:
-          title: Enable Postgress integration
-          type: boolean
-          description: Whether or not to add Postgress dependencies
-        enable_mongodb:
-          title: Enable MongoDb integration
-          type: boolean
-          description: Whether or not to add MongoDb dependencies
-        enable_redis:
-          title: Enable Redis integration
-          type: boolean
-          description: Whether or not to add MongoDb dependencies
+    # - title: Select dependencies
+    #   properties:
+    #     enable_postgress:
+    #       title: Enable Postgress integration
+    #       type: boolean
+    #       description: Whether or not to add Postgress dependencies
+    #     enable_mongodb:
+    #       title: Enable MongoDb integration
+    #       type: boolean
+    #       description: Whether or not to add MongoDb dependencies
+    #     enable_redis:
+    #       title: Enable Redis integration
+    #       type: boolean
+    #       description: Whether or not to add MongoDb dependencies
   steps:
     - id: fetch-base
       name: Fetch Base
@@ -68,8 +68,9 @@ spec:
       action: publish:github
       input:
         allowedHosts: ['github.com']
-        description: This is ${{ parameters.app_name }}
-        repoUrl: ${{ parameters.repoUrl }}
+        description: ${{ parameters.app_name }}
+        repoUrl: 'github.com?repo=${{ parameters.app_name }}&owner=coe-tech'
+        repoVisibility: 'public'
 
     - id: register
       name: Register
