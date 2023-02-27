@@ -1,5 +1,5 @@
 site_name: ${{values.name_app}}
-site_description: ${{values.description}}
+system_name: ${{values.system_name}}
 
 nav:
   - Introduction: index.md

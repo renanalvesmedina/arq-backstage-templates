@@ -1,6 +1,6 @@
-## ${{ values.name }}
+## ${{ values.site_name }}
 
-${{ values.description }}
+This microservice is part of the system ${{ values.system_name }}
 
 ## Getting started
 

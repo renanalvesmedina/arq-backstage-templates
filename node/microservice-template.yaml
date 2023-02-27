@@ -17,12 +17,17 @@ spec:
     - title: Provide some simple information about default entrypoint
       required:
         - app_name
-        # - repoUrl
+        - system_name
       properties:
         app_name:
-          title: Identification
+          title: Service Name
           type: string
-          description: Application unique name.
+          description: Application Unique Name.
+          pattern: '^\S*[a-z\-]$'
+        system_name:
+          title: System or Application
+          type: string
+          description: System or Application.
           pattern: '^\S*[a-z\-]$'
         # repoUrl:
         #   title: Repository Location
@@ -62,6 +67,7 @@ spec:
         values:
           app_name: ${{ parameters.app_name }}
           owner: ${{ parameters.owner }}
+          system: ${{ parameters.system_name }}
 
     - id: publish
       name: Publish

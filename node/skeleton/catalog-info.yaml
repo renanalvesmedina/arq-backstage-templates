@@ -10,3 +10,4 @@ spec:
   type: service
   lifecycle: development
   owner: ${{values.owner}}
+  system: ${{values.system_name}}
